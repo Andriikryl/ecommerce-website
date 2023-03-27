@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react";
 
 export const SidebarContext = createContext();
 
-const SidebarProvider = ({ childred }) => {
+const SidebarProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClose = () => {
     setIsOpen(false);
@@ -10,7 +10,7 @@ const SidebarProvider = ({ childred }) => {
 
   return (
     <SidebarContext.Provider value={{ isOpen, setIsOpen, handleClose }}>
-      {childred}
+      {children}
     </SidebarContext.Provider>
   );
 };
