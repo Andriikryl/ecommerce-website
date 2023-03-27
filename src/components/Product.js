@@ -25,14 +25,20 @@ const Product = ({ product }) => {
             </div>
           </button>
           <Link
-            to={"/"}
+            to={`/product/${id}`}
             className="w-12 h-12 bg-white flex justify-center items-center text-primary drop-shadow-xl"
           >
             <BsEyeFill />
           </Link>
         </div>
       </div>
-      <div>2</div>
+      <div>
+        <div className="text-sm capitalize text-gray-500 mb-1">{category}</div>
+        <Link to={`/product/${id}`}>
+          <h3 className="mb-1 font-semibold">{title}</h3>
+        </Link>
+        <h2 className="font-semibold">$ {price}</h2>
+      </div>
     </div>
   );
 };
