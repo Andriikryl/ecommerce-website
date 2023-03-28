@@ -15,7 +15,7 @@ const Hero = () => {
             Your choiese
           </h1>
         </div>
-        <div className="hidden lg:block ">
+        <div className="hidden lg:block w-[700px] ">
           <img src={HeroImg}></img>
         </div>
       </div>
