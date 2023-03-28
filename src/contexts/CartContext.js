@@ -7,6 +7,24 @@ const CartProvider = ({ children }) => {
 
   const [itemAmount, setItemAmount] = useState(0);
 
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    const total = cart.reduce((acc, item) => {
+      return acc + item.price * item.amount;
+    }, 0);
+    setTotal(total);
+  });
+
+  useEffect(() => {
+    if (cart) {
+      const amount = cart.reduce((accumulator, currentItem) => {
+        return accumulator + currentItem.amount;
+      }, 0);
+      setItemAmount(amount);
+    }
+  }, [cart]);
+
   const addToCart = (product, id) => {
     const newItem = { ...product, amount: 1 };
     const carItem = cart.find((item) => {
@@ -72,6 +90,7 @@ const CartProvider = ({ children }) => {
         increaseAmount,
         decreaseAmount,
         itemAmount,
+        total,
       }}
     >
       {children}
