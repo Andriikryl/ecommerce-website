@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { IoMdAdd, IoMdClose, IoMdRemove } from "react-icons/io";
 
+import { CartContext } from "../contexts/CartContext";
+
 const CartItem = ({ item }) => {
+  const { removeFromCart } = useContext(CartContext);
+
   const { id, title, image, price, amount } = item;
 
   return (
-    <div className="flex">
+    <div className="flex gap-x-4 py-2 lg:px-6 border-b border-gray-200 w-full font-light text-gray-500">
       <div className="w-full min-h-[150px] flex items-center gap-x-4">
         <Link to={`/product/${id}`}>
           <img className="max-w-[80px]" src={image} />
@@ -19,7 +23,7 @@ const CartItem = ({ item }) => {
             >
               {title}
             </Link>
-            <div className="text-xl">
+            <div onClick={() => removeFromCart(id)} className="text-xl">
               <IoMdClose className="text-gray-500 hover:text-red-500 cursor-pointer transition" />
             </div>
           </div>
