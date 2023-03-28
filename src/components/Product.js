@@ -11,7 +11,7 @@ const Product = ({ product }) => {
   const { id, image, category, title, price } = product;
   return (
     <div>
-      <div className="border borded-[#e4e4e4] h-[300px] mb-4 relative overflow-hidden group transition:">
+      <div className="border borded-[#e4e4e4] h-[300px] mb-4 relative overflow-hidden group transition bg-white">
         <div className="w-full h-full flex justify-center items-center">
           {/* {image} */}
           <div className="w-[200px] mx-auto flex justify-center items-center">
